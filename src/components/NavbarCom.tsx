@@ -4,6 +4,7 @@ import { Button, Navbar } from "flowbite-react";
 import Logo from "../../public/assets/image/vann-commerce.png";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+
 export default function NavbarCom() {
   const pathname = usePathname();
 

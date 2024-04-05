@@ -1,6 +1,10 @@
 import { Metadata } from 'next';
-import React from 'react'
+import React, { Suspense } from 'react'
 import ProductCard from '../components/ProductCard';
+import LoadingComponent from './loading';
+import Link from 'next/link';
+import { Carousel } from 'flowbite-react';
+import CarouselCom from '@/components/CarouselCom';
 
 const url = "https://store.istad.co/api/products/?page_size=8";
 async function getData(){
@@ -24,22 +28,31 @@ export const metadata: Metadata = {
 const page = async () => {
   const productItem = await getData();
   return (
-    <section className='mx-auto w-[90%] mb-5'>
-      <section className='grid lg:grid-cols-4 md:grid-cols-3 gap-5 mt-5'>
-      {
+    <>
+      {/* <CarouselCom/> */}
+      <section className='mx-auto w-[90%] mt-10 mb-5'>
+      <h1 className="text-3xl font-bold text-[#00407f]"> ➡️ Product Lists</h1>
+      <section className='grid lg:grid-cols-4 md:grid-cols-3 gap-5 mt-10'>
+        <Suspense fallback={<LoadingComponent/>}>
+        {
         productItem.map((product: productType)=>(
-        <ProductCard 
-          key={product.id}
-          name={product.name}
-          price={product.price}
-          desc={product.desc}
-          quantity={product.quantity}
-          image={product.image}
-       />
+          <Link as={`/${product.id}`} href="#">
+          <ProductCard 
+            key={product.id}
+            name={product.name}
+            price={product.price}
+            desc={product.desc}
+            quantity={product.quantity}
+            image={product.image}
+          />
+        </Link>
       ))
     }
+        </Suspense>
       </section>
     </section>
+    </>
+    
   )
 }
 
