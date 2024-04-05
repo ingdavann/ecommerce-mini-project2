@@ -1,10 +1,9 @@
-import React from 'react'
-import { Metadata } from 'next';
-
+import React from "react";
+import { Metadata } from "next";
 
 export const metadata: Metadata = {
     title: "Policy",
-    description: "This is policy's page",
+    description: "This is policy&apos;s page",
     keywords: ["ecommerce", "products", "fashion", "items"],
     icons: "/assets/image/vann-commerce.png",
     openGraph: {
@@ -16,7 +15,7 @@ export const metadata: Metadata = {
 
 const page = () => {
     return (
-        <section className='w-[80%] mx-auto bg-slate-50 rounded-lg mb-5 mt-5'>
+        <section className="w-[80%] mx-auto bg-slate-50 rounded-lg mb-5 mt-5">
             <div>
                 <div className="container mx-auto px-4 py-8">
                     <h1 className="text-3xl font-bold mb-4 text-[#00407f]"><span className="text-[#fb2925]">VANN</span> COMMERCE Policies</h1>
@@ -27,7 +26,7 @@ const page = () => {
                     <h2 className="text-2xl font-bold mb-2">Privacy Policy</h2>
 
                     <p className="mb-4">
-                    At VANN COMMERCE, we prioritize the privacy and security of our customers' personal information. Our Privacy Policy outlines how we collect, use, and protect your data.
+                    At VANN COMMERCE, we prioritize the privacy and security of our customers&apos; personal information. Our Privacy Policy outlines how we collect, use, and protect your data.
                     </p>
 
                     <h2 className="text-2xl font-bold mb-2">Terms of Service</h2>

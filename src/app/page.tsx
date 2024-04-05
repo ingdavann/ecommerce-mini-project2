@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { Carousel } from 'flowbite-react';
 import CarouselCom from '@/components/CarouselCom';
 
-const url = "https://store.istad.co/api/products/?page_size=8";
+const url = "https://store.istad.co/api/products/?page_size=16";
 async function getData(){
   const res = await fetch(url);
   const result = await res.json();
@@ -36,14 +36,15 @@ const page = async () => {
         <Suspense fallback={<LoadingComponent/>}>
         {
         productItem.map((product: productType)=>(
-          <Link as={`/${product.id}`} href="#">
+          <Link as={`/${product.id}`} href="#" key={product.id}>
           <ProductCard 
-            key={product.id}
             name={product.name}
             price={product.price}
             desc={product.desc}
             quantity={product.quantity}
             image={product.image}
+            category=''
+            id={0}
           />
         </Link>
       ))
